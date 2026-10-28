@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GoAirFry Dashboard — Draft & Publish</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><header><a class="logo" href="../index.html">GoAirFry Admin</a><nav><a href="../index.html">View site</a></nav></header>
+<main><h1>Blog Dashboard</h1><p>Draft here, check SEO, then publish. V1 saves in this browser. V2 (GitHub-connected) will commit the post to GitHub and Cloudflare Pages will deploy it automatically.</p>
+<label>Post title <input id="title" placeholder="e.g. Best Dual Basket Air Fryer UK 2026"></label>
+<label>Slug <input id="slug" placeholder="best-dual-basket-air-fryer-uk"></label>
+<label>Category <select id="cat"><option>Reviews</option><option>Recipes</option><option>Guides</option><option>Deals / Seasonal</option></select></label>
+<label>Market <select id="market"><option>USA (primary)</option><option>UK</option><option>USA + UK version</option></select></label>
+<label>Amazon US affiliate link <input id="uslink" placeholder="Amazon Associates US link"></label>
+<label>Amazon UK / Awin UK link (UK pages only) <input id="uklink" placeholder="Amazon UK or Awin retailer link"></label>
+<label>Target keyword <input id="kw" placeholder="e.g. best dual basket air fryer"></label>
+<label>Pinterest pin URL <input id="pin" placeholder="Paste after you pin"></label>
+<label>YouTube video URL <input id="yt" placeholder="Paste after you publish video"></label>
+<label>Instagram reel URL <input id="ig" placeholder="Paste after you post reel"></label>
+<label>Content (Markdown) <textarea id="body" rows="14" placeholder="# Heading&#10;Write the post here. Add your affiliate link as [Buy on Amazon](YOUR-AFFILIATE-LINK)"></textarea></label>
+<button onclick="save('draft')">Save Draft</button> <button onclick="save('published')">Publish</button> <button onclick="exportMd()">Export Markdown for GitHub</button>
+<h2>SEO checklist</h2><ul id="check"></ul>
+<h2>Posts</h2><table><thead><tr><th>Title</th><th>Status</th><th>Category</th><th>Social</th></tr></thead><tbody id="rows"></tbody></table>
+<pre id="out"></pre>
+<script>
+let posts=JSON.parse(localStorage.getItem('goairfry_posts')||'[]');
+function save(s){let p={title:title.value,slug:slug.value,cat:cat.value,market:market.value,uslink:uslink.value,uklink:uklink.value,kw:kw.value,pin:pin.value,yt:yt.value,ig:ig.value,body:body.value,status:s,date:new Date().toLocaleDateString()};posts.unshift(p);localStorage.setItem('goairfry_posts',JSON.stringify(posts));render();alert(s==='draft'?'Draft saved':'Published (local demo) — in the live version this commits to GitHub');}
+function render(){rows.innerHTML=posts.map(p=>`<tr><td>${p.title}</td><td>${p.status} • ${p.market||''}</td><td>${p.cat}</td><td>${[p.pin?'📌','',p.yt?'▶️',p.ig?'📸'].join(' ')}</td></tr>`).join('');check.innerHTML=`<li>${title.value.length>30?'✅':'⚠️'} Title over 30 chars</li><li>${body.value.length>800?'✅':'⚠️'} Body over 800 words/chars for depth — aim 1200+ words for money posts</li><li>${body.value.includes('http')?'✅':'⚠️'} Contains a link (affiliate / internal)</li><li>${kw.value?'✅':'⚠️'} Target keyword set</li>`;}
+function exportMd(){let md=`---\ntitle: ${title.value}\nslug: ${slug.value}\ncategory: ${cat.value}\nmarket: ${market.value}\namazon_us: ${uslink.value}\namazon_uk_awin: ${uklink.value}\nkeyword: ${kw.value}\npinterest: ${pin.value}\nyoutube: ${yt.value}\ninstagram: ${ig.value}\n---\n\n${body.value}`;out.textContent=md;navigator.clipboard?.writeText(md);alert('Markdown copied — paste it as posts/'+(slug.value||'new-post')+'.md in GitHub');}
+['title','body','kw'].forEach(id=>document.getElementById(id).addEventListener('input',render));render();
+</script></main></body></html>
