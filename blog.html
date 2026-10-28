@@ -1,0 +1,12 @@
+<!doctype html><html lang="en-US"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Blog — GoAirFry</title><link rel="stylesheet" href="assets/style.css"></head>
+<body><header><a class="logo" href="index.html">GoAirFry</a><nav><a href="index.html">Home</a><a href="blog.html">Blog</a><a href="reviews.html">Reviews</a><a href="recipes.html">Recipes</a><a href="deals.html">Deals</a></nav></header>
+<main><h1>All posts</h1><p>Filter by type below. Every post is written for the US first, with a UK / Canada version linked at the top where it matters.</p>
+<p><button onclick="filterPosts('all')">All</button> <button onclick="filterPosts('review')">Reviews</button> <button onclick="filterPosts('recipe')">Recipes</button> <button onclick="filterPosts('guide')">Guides</button></p>
+<div class="grid" id="list">
+<article class="card" data-type="review"><span class="tag">REVIEW • USA</span><h3>Best Air Fryer USA 2026</h3><a href="posts/best-air-fryer.html">Read →</a></article>
+<article class="card" data-type="review"><span class="tag">REVIEW • UK</span><h3>Best Air Fryer UK 2026</h3><a href="posts/best-air-fryer-uk.html">Read →</a></article>
+<article class="card" data-type="review"><span class="tag">REVIEW • CANADA</span><h3>Best Air Fryer Canada 2026</h3><a href="posts/best-air-fryer-canada.html">Read →</a></article>
+<article class="card" data-type="recipe"><span class="tag">RECIPE</span><h3>Crispy Air Fryer Chicken</h3><a href="posts/air-fryer-chicken.html">Cook it →</a></article>
+<article class="card" data-type="guide"><span class="tag">GUIDE</span><h3>Air Fryer vs Oven Cost</h3><a href="posts/air-fryer-vs-oven.html">Read →</a></article>
+</div><script>function filterPosts(t){document.querySelectorAll('#list .card').forEach(c=>{c.style.display=(t==='all'||c.dataset.type===t)?'block':'none'})}</script>
+<p class="disclosure">As an Amazon Associate, GoAirFry earns from qualifying purchases.</p></main><footer>© GoAirFry • <a href="disclosure.html">Affiliate Disclosure</a></footer></body></html>
