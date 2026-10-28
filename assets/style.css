@@ -1,0 +1,29 @@
+*{box-sizing:border-box}body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0;color:#222;line-height:1.65;background:#fffaf5}
+header{position:sticky;top:0;background:#fff;border-bottom:1px solid #f0e2d3;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 24px;flex-wrap:wrap;z-index:10}
+nav a{margin-left:14px;color:#333;text-decoration:none;font-size:15px;font-weight:500}nav a:hover{color:#e85d04}
+.logo{font-weight:900;font-size:26px;color:#e85d04;text-decoration:none;letter-spacing:-.5px}.logo span{color:#111}
+main{max-width:1080px;margin:auto;padding:24px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:28px 0}
+.hero img,.card img,.post-img{width:100%;border-radius:18px;object-fit:cover;display:block}
+.hero img{height:380px}.tag{display:inline-block;background:#ffe8d6;color:#9a3412;padding:4px 11px;border-radius:20px;font-size:12px;font-weight:800;letter-spacing:.4px}
+h1{font-size:44px;line-height:1.1;margin:14px 0}h2{margin-top:36px;font-size:28px}h3{margin:8px 0}
+p.lead{font-size:19px;color:#555}
+.btn{display:inline-block;background:#e85d04;color:#fff;padding:12px 20px;border-radius:999px;text-decoration:none;font-weight:700;margin:6px 8px 6px 0;box-shadow:0 6px 18px rgba(232,93,4,.25)}
+.btn.ghost{background:#fff;color:#222;border:1px solid #e5d5c3;box-shadow:none}
+.btn.dark{background:#111}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.card{background:#fff;border:1px solid #f0e2d3;border-radius:18px;padding:0;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.04)}
+.card-body{padding:18px}.card img{height:180px;border-radius:0}.card a{color:#c2410c;font-weight:700;text-decoration:none}
+.trust{display:flex;gap:18px;flex-wrap:wrap;background:#111;color:#fff;border-radius:16px;padding:18px 22px;margin:28px 0}.trust div{flex:1;min-width:160px}.trust b{font-size:20px}
+.deal{background:#fff3e6;border:1px solid #ffd9b3;padding:24px;border-radius:18px;margin-top:28px}
+.disclosure{font-size:13px;color:#777;border-top:1px solid #eee;padding-top:14px;margin-top:36px}
+footer{max-width:1080px;margin:auto;padding:22px 24px 44px;color:#666;font-size:14px}footer a{color:#666}
+input,textarea,select{width:100%;padding:11px;margin:6px 0 14px;border:1px solid #ddd;border-radius:10px;font:inherit;background:#fff}
+button{background:#111;color:#fff;padding:11px 18px;border-radius:999px;border:0;cursor:pointer;font-weight:700}
+table{width:100%;border-collapse:collapse}td,th{border-bottom:1px solid #eee;padding:8px;text-align:left}
+.recipe-card{background:#fff;border:1px solid #f0e2d3;border-radius:16px;padding:20px;margin:18px 0}
+.buybox{border:2px solid #e85d04;border-radius:16px;padding:20px;margin:22px 0;background:#fff}
+.buybox a{font-weight:800;color:#c2410c}
+.post-img{height:340px;margin:16px 0}
+.pill{display:inline-block;border:1px solid #e5d5c3;background:#fff;padding:6px 12px;border-radius:999px;font-size:13px;margin:0 6px 6px 0}
+@media(max-width:720px){.hero{grid-template-columns:1fr}.hero img{height:260px}h1{font-size:34px}main{padding:16px}nav a{margin-left:9px}}
